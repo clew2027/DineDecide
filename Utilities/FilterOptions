@@ -1,1 +1,4 @@
-
+struct FilterOptions {
+    var maxPriceLevel: Int
+    var selectedCuisine: String
+}
