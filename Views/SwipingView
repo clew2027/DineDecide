@@ -1,3 +1,5 @@
+import SwiftUI
+
 struct SwipingView: View {
     let filters: FilterOptions
 
