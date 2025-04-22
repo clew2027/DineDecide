@@ -1,1 +1,50 @@
+import SwiftUI
 
+struct HomeView: View {
+    @State private var maxPriceLevel = 3
+    @State private var selectedCuisine = "Any"
+    
+    let cuisineOptions = ["Any", "American", "Asian", "Mexican", "Italian", "Mediterranean"]
+
+    var body: some View {
+        NavigationView {
+            VStack(spacing: 20) {
+                Text("DineDecide")
+                    .font(.largeTitle)
+                    .bold()
+
+                // Cuisine
+                VStack(alignment: .leading) {
+                    Text("Cuisine")
+                        .font(.headline)
+                    Picker("Cuisine", selection: $selectedCuisine) {
+                        ForEach(cuisineOptions, id: \.self) { cuisine in
+                            Text(cuisine)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                }
+
+                // Price Level
+                VStack(alignment: .leading) {
+                    Text("Max Price Level: \(String(repeating: "$", count: maxPriceLevel))")
+                        .font(.headline)
+                    Stepper("", value: $maxPriceLevel, in: 1...4)
+                }
+
+                // Navigation
+                NavigationLink("Find Food") {
+                    SwipingView(filters: FilterOptions(
+                        maxPriceLevel: maxPriceLevel,
+                        selectedCuisine: selectedCuisine
+                    ))
+                }
+                .buttonStyle(.borderedProminent)
+                .padding(.top)
+
+                Spacer()
+            }
+            .padding()
+        }
+    }
+}
