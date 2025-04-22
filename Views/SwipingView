@@ -1,1 +1,8 @@
+struct SwipingView: View {
+    let filters: FilterOptions
+
+    var body: some View {
+        Text("Swipe for food! Cuisine: \(filters.selectedCuisine), Max $: \(filters.maxPriceLevel)")
+    }
+}
 
