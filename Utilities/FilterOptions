@@ -1,0 +1,8 @@
+
+import SwiftUI
+
+public struct FilterOptions {
+    public var maxPriceLevel: Int
+    public var selectedCuisine: String
+    public var minRating: Double
+}
