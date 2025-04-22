@@ -5,6 +5,9 @@
 //  Created by Charlotte Lew on 4/20/25.
 //
 
+import SwiftUI
+
+
 public struct Restaurant {
     public var name: String
     public var latitude: Double
@@ -15,6 +18,7 @@ public struct Restaurant {
     public var popularDishes: [String]
     public var atmosphere: String
     public var parking: BooleanLiteralType
-    
+    public var imageName: String
+    public var rating: Double
 }
 
